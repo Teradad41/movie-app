@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "movie-ratings-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -23,8 +23,10 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "swr": "^2.2.5",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "use-debounce": "^10.0.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.7.3",

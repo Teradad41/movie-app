@@ -4,6 +4,10 @@ import Link from "next/link"
 import { redirect } from "next/navigation"
 import { SubmitButton } from "./submit-button"
 
+export const metadata = {
+  title: "Login",
+}
+
 export default function Login({
   searchParams,
 }: {

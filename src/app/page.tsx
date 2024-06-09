@@ -1,10 +1,9 @@
-import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
+import { Home } from "@/components/home"
 import { createClient } from "@/utils/supabase/server"
 
 export default async function Index() {
   const canInitSupabaseClient = () => {
-    // This function is just for the interactive tutorial.
-    // Feel free to remove it once you have Supabase connected.
     try {
       createClient()
       return true
@@ -15,5 +14,10 @@ export default async function Index() {
 
   const isSupabaseConnected = canInitSupabaseClient()
 
-  return <Header />
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Home />
+      <Footer />
+    </div>
+  )
 }

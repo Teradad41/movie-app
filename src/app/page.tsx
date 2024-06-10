@@ -1,4 +1,3 @@
-import { Footer } from "@/components/footer"
 import { Home } from "@/components/home"
 import { createClient } from "@/utils/supabase/server"
 
@@ -17,7 +16,6 @@ export default async function Index() {
   return (
     <div className="flex flex-col min-h-screen">
       <Home />
-      <Footer />
     </div>
   )
 }

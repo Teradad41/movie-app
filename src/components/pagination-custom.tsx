@@ -51,7 +51,7 @@ export function PaginationCustom() {
           />
         </PaginationItem>
         {[...Array(end - start + 1)].map((_, index) => (
-          <PaginationItem key={start + index}>
+          <PaginationItem key={String(start + index)}>
             <PaginationLink
               href={createPageURL(start + index)}
               onClick={(e) => {

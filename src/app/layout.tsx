@@ -1,4 +1,5 @@
 import "@/styles/globals.css"
+import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { archivo } from "@/lib/fonts"
@@ -10,7 +11,7 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   title: {
-    template: "%s | Movie App",
+    template: "%s | Movie Ratings App",
     default: "Movie App",
   },
   description: "Watch your favorite movies and review them.",
@@ -31,6 +32,7 @@ export default function RootLayout({
         >
           <Header />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

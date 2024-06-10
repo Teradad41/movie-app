@@ -8,6 +8,7 @@ import { useState } from "react"
 export function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   const handleLogin = (e: any) => {
     e.preventDefault()
     setIsLoggedIn(true)

@@ -14,11 +14,14 @@ const buttonVariants = cva(
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
           "border border-input bg-background hover:bg-accent" +
-          "hover:text-accent-foreground text-white",
-        primary: "bg-primary text-primary-foreground hover:bg-primary/80", // 新しいprimaryスタイルを追加
+          "hover:text-accent-foreground text-white dark:border-white" +
+          " dark:bg-transparent dark:hover:bg-accent dark:hover:text-accent-foreground",
+        primary: "bg-primary text-primary-foreground hover:bg-primary/80",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        ghost:
+          "hover:bg-accent hover:text-accent-foreground" +
+          " hover:bg-gray-200 dark:hover:bg-gray-800",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

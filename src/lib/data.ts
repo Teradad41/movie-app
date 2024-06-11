@@ -34,3 +34,7 @@ export async function getTopRatedMovies(pageNumber: string) {
 export async function getUpcomingMovies(pageNumber: string) {
   return fetchMovies("/movie/upcoming", pageNumber)
 }
+
+export async function getTrendingMovies(timeWindow: "day" | "week") {
+  return fetchMovies(`/trending/movie/${timeWindow}`, "1")
+}

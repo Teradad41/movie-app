@@ -1,17 +1,17 @@
 import { MovieCardsList } from "@/components/movie-cards-list"
-import { getPopularMovies } from "@/lib/data"
+import { getTrendingMovies } from "@/lib/data"
 import type { Movie } from "@/lib/definitions"
 import type { SearchParams } from "@/lib/definitions"
 
 export const metadata = {
-  title: "Popular",
+  title: "Trending",
 }
 
 export default async function Page({
   searchParams,
 }: { searchParams: SearchParams }) {
   const currentPage = Number(searchParams?.page) || 1
-  const fetchedMovies: Movie[] = await getPopularMovies(String(currentPage))
+  const fetchedMovies: Movie[] = await getTrendingMovies("week")
 
   return (
     <>

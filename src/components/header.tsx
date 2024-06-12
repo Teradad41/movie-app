@@ -23,7 +23,7 @@ export function Header() {
             className="text-white font-bold text-lg"
             prefetch={false}
           >
-            Movie Ratings App
+            Movie App
           </Link>
         </div>
         {!isLoggedIn && (

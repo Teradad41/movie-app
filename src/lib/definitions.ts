@@ -12,4 +12,9 @@ export type SearchParams = {
   page?: string
 }
 
-export type Tab = "now-playing" | "popular" | "top-rated" | "upcoming"
+export type Tab =
+  | "now-playing"
+  | "popular"
+  | "top-rated"
+  | "upcoming"
+  | "trending"

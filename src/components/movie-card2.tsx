@@ -17,6 +17,7 @@ export function MovieCard2({ movie }: { movie: Movie }) {
           width={500}
           height={300}
           className="w-full h-72 object-cover"
+          quality={100}
         />
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
           <h2 className="text-2xl font-bold text-white mb-2">{movie.title}</h2>

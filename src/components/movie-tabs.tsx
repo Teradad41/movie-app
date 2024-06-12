@@ -67,6 +67,15 @@ export function MovieTabs() {
             Upcoming
           </Link>
         </li>
+        <li role="presentation">
+          <Link
+            href="/movies/trending"
+            className={tabClasses("trending")}
+            aria-selected={activeTab === "trending"}
+          >
+            Trending
+          </Link>
+        </li>
       </ul>
     </div>
   )

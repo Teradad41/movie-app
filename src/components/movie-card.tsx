@@ -23,6 +23,7 @@ export function MovieCard({ movie, index }: { movie: Movie; index: number }) {
         alt={movie.title}
         className="rounded-t-md w-full h-64 object-cover"
         priority={index < 8}
+        quality={90}
       />
       <CardContent className="p-4 flex flex-col flex-1 justify-between">
         <h3 className="text-lg font-bold mb-2">{movie.title}</h3>

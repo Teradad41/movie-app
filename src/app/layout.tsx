@@ -13,7 +13,7 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   title: {
-    template: "%s | Movie Ratings App",
+    template: "%s | Movie App",
     default: "Movie App",
   },
   description: "Watch your favorite movies and review them.",

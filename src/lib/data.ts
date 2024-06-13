@@ -1,3 +1,33 @@
+import type { Topic } from "@/lib/definitions"
+
+export const topics: Topic[] = [
+  {
+    title: "Now Playing",
+    path: "now-playing",
+    action: () => getNowPlayingMovies("1"),
+  },
+  {
+    title: "Popular",
+    path: "popular",
+    action: () => getPopularMovies("1"),
+  },
+  {
+    title: "Top Rated",
+    path: "top-rated",
+    action: () => getTopRatedMovies("1"),
+  },
+  {
+    title: "Upcoming",
+    path: "upcoming",
+    action: () => getUpcomingMovies("1"),
+  },
+  {
+    title: "Trending",
+    path: "trending",
+    action: () => getTrendingMovies("week"),
+  },
+]
+
 const options = {
   method: "GET",
   next: { revalidate: 1800 },
@@ -9,7 +39,7 @@ const options = {
 
 async function fetchMovies(endpoint: string, pageNumber: string) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}${endpoint}?language=ja-JA&page=${pageNumber}`,
+    `${process.env.NEXT_PUBLIC_API_URL}${endpoint}?language=ja-JP&page=${pageNumber}`,
     options,
   )
   if (!res.ok) {
@@ -17,6 +47,18 @@ async function fetchMovies(endpoint: string, pageNumber: string) {
   }
   const data = await res.json()
   return data.results
+}
+
+export async function getMovieDetail(id: string) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/movie/${id}?language=ja-JP`,
+    options,
+  )
+  if (!res.ok) {
+    throw new Error("Failed to fetch movie detail")
+  }
+  const data = await res.json()
+  return [data.title, data.poster_path]
 }
 
 export async function getNowPlayingMovies(pageNumber: string) {

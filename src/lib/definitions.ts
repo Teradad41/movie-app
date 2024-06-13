@@ -12,6 +12,12 @@ export type SearchParams = {
   page?: string
 }
 
+export type Topic = {
+  title: string
+  path: Tab
+  action: () => Promise<Movie[]>
+}
+
 export type Tab =
   | "now-playing"
   | "popular"

@@ -1,5 +1,6 @@
 import { Home } from "@/components/home"
 import { createClient } from "@/utils/supabase/server"
+import { Suspense } from "react"
 
 export default async function Index() {
   const canInitSupabaseClient = () => {
@@ -15,7 +16,9 @@ export default async function Index() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Home />
+      <Suspense>
+        <Home />
+      </Suspense>
     </div>
   )
 }

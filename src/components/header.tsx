@@ -28,19 +28,14 @@ export function Header() {
         </div>
         {!isLoggedIn && (
           <div className="flex items-center space-x-4">
-            <Link
-              href="/login"
-              className="text-gray-400 hover:text-white transition-colors"
-              prefetch={false}
-            >
-              Sign Up
+            <Link href="/login">
+              <Button
+                // onClick={handleLogin}
+                className="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/80 focus:ring-2 focus:ring-primary focus:outline-none"
+              >
+                Login
+              </Button>
             </Link>
-            <Button
-              onClick={handleLogin}
-              className="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/80 focus:ring-2 focus:ring-primary focus:outline-none"
-            >
-              Login
-            </Button>
             <ModeToggle />
           </div>
         )}

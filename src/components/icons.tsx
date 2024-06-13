@@ -95,3 +95,32 @@ export function UserIcon(props: any) {
     </svg>
   )
 }
+
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+export function HomeIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      className="w-6 h-6 "
+      fill="none"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      role={"img"}
+    >
+      <path
+        d="M3 9L12 2L21 9V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9Z"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
+      <path
+        d="M9 21V12H15V21"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
+    </svg>
+  )
+}

@@ -1,5 +1,4 @@
 import "@/styles/globals.css"
-import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { archivo } from "@/lib/fonts"
@@ -32,11 +31,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          {children}
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-1">{children}</main>
+          </div>
           <Analytics />
           <SpeedInsights />
-          <Footer />
         </ThemeProvider>
       </body>
     </html>

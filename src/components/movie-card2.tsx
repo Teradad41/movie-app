@@ -17,19 +17,19 @@ export function MovieCard2({ movie }: { movie: Movie }) {
           width={500}
           height={300}
           className="w-full h-72 object-cover"
-          quality={100}
+          quality={90}
         />
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
           <h2 className="text-2xl font-bold text-white mb-2">{movie.title}</h2>
           <div className="flex items-center text-yellow-500 mb-2">
-            {[...Array(fullStars)].map((_, index) => (
+            {Array.from({ length: fullStars }).map((_, index) => (
               <StarIcon
                 key={String(index)}
                 className="w-5 h-5 mr-1 text-yellow-400"
               />
             ))}
             {halfStar && <HalfStarIcon className="w-5 h-5 mr-1" />}
-            {[...Array(emptyStars)].map((_, index) => (
+            {Array.from({ length: emptyStars }).map((_, index) => (
               <EmptyStarIcon
                 key={String(index)}
                 className="w-5 h-5 mr-1 text-gray-400"

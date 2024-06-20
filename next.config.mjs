@@ -10,6 +10,10 @@ const nextConfig = {
                 pathname: '/t/p/**',
             }
         ]
+    },
+    // 一旦これで対応
+    experimental: {
+        missingSuspenseWithCSRBailout: false
     }
 };
 

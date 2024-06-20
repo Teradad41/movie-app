@@ -1,7 +1,9 @@
+import Loading from "@/app/movies/(categories)/loading"
 import { MovieCardsList } from "@/components/movie-cards-list"
 import { getPopularMovies } from "@/lib/data"
 import type { Movie } from "@/lib/definitions"
 import type { SearchParams } from "@/lib/definitions"
+import { Suspense } from "react"
 
 export const metadata = {
   title: "Popular",
@@ -21,7 +23,9 @@ export default async function Page({
           Check out the {metadata.title.toLowerCase()} movie releases.
         </p>
       </div>
-      <MovieCardsList movies={fetchedMovies} />
+      <Suspense fallback={<Loading />}>
+        <MovieCardsList movies={fetchedMovies} />
+      </Suspense>
     </>
   )
 }

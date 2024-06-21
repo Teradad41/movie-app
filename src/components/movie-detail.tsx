@@ -4,15 +4,18 @@ import {
   StarIcon,
   UserIcon,
 } from "@/components/icons"
-import { getMovieCasts, getMovieDetail } from "@/lib/data"
-import type { Cast, MovieDetail } from "@/lib/definitions"
+import { Badge } from "@/components/ui/badge"
+import { getMovieCastsAndCrews, getMovieDetail } from "@/lib/data"
+import type { Cast, Crew, MovieDetail } from "@/lib/definitions"
 import { calculateRating } from "@/lib/ratings"
 import Image from "next/image"
 
 export async function MovieDetailPage({ movieId }: { movieId: string }) {
   const movie: MovieDetail = await getMovieDetail(movieId)
-  const casts: Cast[] = await getMovieCasts(movieId)
-  const { rating, fullStars, halfStar, emptyStars } = calculateRating(movie.vote_average)
+  const { casts, crews } = await getMovieCastsAndCrews(movieId)
+  const { rating, fullStars, halfStar, emptyStars } = calculateRating(
+    movie.vote_average,
+  )
 
   return (
     <div className="w-full">
@@ -74,12 +77,9 @@ export async function MovieDetailPage({ movieId }: { movieId: string }) {
                 <p className="font-medium">Genre</p>
                 <div className="flex flex-wrap gap-2">
                   {movie.genres.map((genre) => (
-                    <span
-                      key={genre.id}
-                      className="inline-block bg-gray-800 dark:bg-gray-300 text-white dark:text-gray-800 text-sm font-semibold px-3 py-1 rounded-full"
-                    >
-                      {genre.name}
-                    </span>
+                    <div key={genre.id}>
+                      <Badge>{genre.name}</Badge>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -91,43 +91,28 @@ export async function MovieDetailPage({ movieId }: { movieId: string }) {
       <section className="w-full py-4 md:py-10 lg:py-20">
         <div className="container px-4 md:px-6">
           <div className="grid gap-10">
+            {/*casts*/}
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold mb-10">Cast</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-10">Casts</h2>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
-                {casts.map((cast) => (
+                {casts.map((cast: Cast) => (
                   <div
                     key={cast.id}
                     className="flex flex-col items-center space-y-2"
                   >
                     <div className="relative">
-                      <Image
-                        src={
-                          cast.profile_path
-                            ? `https://image.tmdb.org/t/p/w300${cast.profile_path}`
-                            : "/default-avatar.png"
-                        }
-                        width={80}
-                        height={80}
-                        alt="Avatar"
-                        className="rounded-xl"
-                      />
+                      {cast.profile_path && (
+                        <Image
+                          src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`}
+                          width={80}
+                          height={80}
+                          alt="Avatar"
+                          className="rounded-xl"
+                        />
+                      )}
                       {!cast.profile_path && (
-                        <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-gray-700 rounded-full">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6 text-gray-400 dark:text-gray-600"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            role={"img"}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M6 18L18 6M6 6l12 12"
-                            />
-                          </svg>
+                        <div className="py-12">
+                          <UserIcon />
                         </div>
                       )}
                     </div>
@@ -141,6 +126,42 @@ export async function MovieDetailPage({ movieId }: { movieId: string }) {
                 ))}
               </div>
             </div>
+            {/*crews*/}
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-10">Crews</h2>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+                {crews.map((crew: Crew) => (
+                  <div
+                    key={crew.id}
+                    className="flex flex-col items-center space-y-2"
+                  >
+                    <div className="relative">
+                      {crew.profile_path && (
+                        <Image
+                          src={`https://image.tmdb.org/t/p/w300${crew.profile_path}`}
+                          width={80}
+                          height={80}
+                          alt="Avatar"
+                          className="rounded-xl"
+                        />
+                      )}
+                      {!crew.profile_path && (
+                        <div className="py-12">
+                          <UserIcon />
+                        </div>
+                      )}
+                    </div>
+                    <div className="text-center text-sm">
+                      <p className="font-medium">{crew.original_name}</p>
+                      <p className="text-gray-500 dark:text-gray-400">
+                        {crew.job}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/*reviews*/}
             <div>
               <h2 className="text-2xl md:text-3xl font-bold mb-4">Reviews</h2>
               <div className="grid gap-6">

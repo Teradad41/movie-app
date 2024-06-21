@@ -16,11 +16,17 @@ export type MovieDetail = Movie & {
 
 export type Cast = {
   id: number
-  gender: number
   original_name: string
   popularity: number
   profile_path: string
   character: string
+}
+
+export type Crew = {
+  id: number
+  original_name: string
+  profile_path: string
+  job: string
 }
 
 export type SearchParams = {

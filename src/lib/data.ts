@@ -60,7 +60,7 @@ export async function getMovieDetail(id: string) {
   return await res.json()
 }
 
-export async function getMovieCasts(id: string) {
+export async function getMovieCastsAndCrews(id: string) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/movie/${id}/credits?language=ja-JP`,
     options,
@@ -69,7 +69,10 @@ export async function getMovieCasts(id: string) {
     throw new Error("Failed to fetch movie credits")
   }
   const data = await res.json()
-  return data.cast.slice(0, 10)
+  return {
+    casts: data.cast.slice(0, 10),
+    crews: data.crew.slice(0, 5),
+  }
 }
 
 export async function getNowPlayingMovies(pageNumber: string) {

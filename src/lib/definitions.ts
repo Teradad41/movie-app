@@ -7,6 +7,22 @@ export type Movie = {
   vote_count: number
 }
 
+export type MovieDetail = Movie & {
+  runtime: number
+  tagline: string
+  release_date: string
+  genres: { id: number; name: string }[]
+}
+
+export type Cast = {
+  id: number
+  gender: number
+  original_name: string
+  popularity: number
+  profile_path: string
+  character: string
+}
+
 export type SearchParams = {
   query?: string
   page?: string

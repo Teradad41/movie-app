@@ -57,8 +57,19 @@ export async function getMovieDetail(id: string) {
   if (!res.ok) {
     throw new Error("Failed to fetch movie detail")
   }
+  return await res.json()
+}
+
+export async function getMovieCasts(id: string) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/movie/${id}/credits?language=ja-JP`,
+    options,
+  )
+  if (!res.ok) {
+    throw new Error("Failed to fetch movie credits")
+  }
   const data = await res.json()
-  return [data.title, data.poster_path]
+  return data.cast.slice(0, 10)
 }
 
 export async function getNowPlayingMovies(pageNumber: string) {

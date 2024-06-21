@@ -1,4 +1,4 @@
-import { SubmitButton } from "@/components/submit-button"
+import { SubmitButton } from "@/components/custom-ui/submit-button"
 import { createClient } from "@/utils/supabase/server"
 import { headers } from "next/headers"
 import Link from "next/link"

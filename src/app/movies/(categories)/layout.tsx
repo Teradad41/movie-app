@@ -1,6 +1,6 @@
-import { Footer } from "@/components/footer"
-import { MovieTabs } from "@/components/movie-tabs"
-import { PaginationCustom } from "@/components/pagination-custom"
+import { Footer } from "@/components/custom-ui/footer"
+import { MovieTabs } from "@/components/custom-ui/movie-tabs"
+import { PaginationCustom } from "@/components/custom-ui/pagination-custom"
 import type React from "react"
 
 export default function Layout({ children }: { children: React.ReactNode }) {

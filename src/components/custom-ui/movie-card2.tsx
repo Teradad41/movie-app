@@ -1,4 +1,8 @@
-import { EmptyStarIcon, HalfStarIcon, StarIcon } from "@/components/icons"
+import {
+  EmptyStarIcon,
+  HalfStarIcon,
+  StarIcon,
+} from "@/components/custom-ui/icons"
 import type { Movie } from "@/lib/definitions"
 import { calculateRating } from "@/lib/ratings"
 import Image from "next/image"

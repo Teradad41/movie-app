@@ -1,4 +1,4 @@
-import { MovieCard } from "@/components/movie-card"
+import { MovieCard } from "@/components/custom-ui/movie-card"
 import type { Movie } from "@/lib/definitions"
 
 export function MovieCardsList({ movies }: { movies: Movie[] }) {

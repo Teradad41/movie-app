@@ -1,5 +1,5 @@
 import "@/styles/globals.css"
-import { Header } from "@/components/header"
+import { Header } from "@/components/custom-ui/header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { archivo } from "@/lib/fonts"
 import { Analytics } from "@vercel/analytics/react"

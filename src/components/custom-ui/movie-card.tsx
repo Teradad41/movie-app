@@ -3,7 +3,7 @@ import {
   HalfStarIcon,
   StarIcon,
   UserIcon,
-} from "@/components/icons"
+} from "@/components/custom-ui/icons"
 import { Card, CardContent } from "@/components/ui/card"
 import type { Movie } from "@/lib/definitions"
 import { calculateRating } from "@/lib/ratings"

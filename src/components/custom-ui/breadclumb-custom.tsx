@@ -1,4 +1,4 @@
-import { HomeIcon } from "@/components/icons"
+import { HomeIcon } from "@/components/custom-ui/icons"
 import {
   Breadcrumb,
   BreadcrumbItem,

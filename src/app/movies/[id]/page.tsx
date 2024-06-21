@@ -1,4 +1,4 @@
-import { MovieDetailPage } from "@/components/movie-detail"
+import { MovieDetailPage } from "@/components/custom-ui/movie-detail"
 import { Suspense } from "react"
 
 export default async function Page({ params }: { params: { id: string } }) {

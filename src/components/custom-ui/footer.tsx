@@ -7,7 +7,7 @@ export function Footer() {
         <p className="text-sm">&copy; {new Date().getFullYear()} Movie App</p>
         <nav className="flex items-center space-x-4 mt-4 md:mt-0">
           <Link
-            href="/"
+            href="#"
             className="hover:text-gray-400 transition-colors"
             prefetch={false}
           >

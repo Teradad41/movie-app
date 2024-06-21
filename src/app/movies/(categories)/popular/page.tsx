@@ -1,5 +1,5 @@
 import Loading from "@/app/movies/(categories)/loading"
-import { MovieCardsList } from "@/components/movie-cards-list"
+import { MovieCardsList } from "@/components/custom-ui/movie-cards-list"
 import { getPopularMovies } from "@/lib/data"
 import type { Movie } from "@/lib/definitions"
 import type { SearchParams } from "@/lib/definitions"

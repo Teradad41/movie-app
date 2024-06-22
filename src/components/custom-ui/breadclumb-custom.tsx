@@ -4,11 +4,18 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 
-export const BreadcrumbCustom = () => {
+type BreadclumbCustomProps = {
+  tabName: string
+  movieTitle: string
+}
+
+export const BreadcrumbCustom = ({
+  tabName,
+  movieTitle,
+}: BreadclumbCustomProps) => {
   return (
     <Breadcrumb>
       <BreadcrumbList>
@@ -19,11 +26,11 @@ export const BreadcrumbCustom = () => {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+          <BreadcrumbLink href={`/movies/${tabName}`}>{tabName}</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+          <BreadcrumbLink href={"#"}>{movieTitle}</BreadcrumbLink>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

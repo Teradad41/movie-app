@@ -75,6 +75,18 @@ export async function getMovieCastsAndCrews(id: string) {
   }
 }
 
+export async function getMovieReviews(id: string) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/movie/${id}/reviews?page=1`,
+    options,
+  )
+  if (!res.ok) {
+    throw new Error("Failed to fetch movie reviews")
+  }
+  const data = await res.json()
+  return data.results
+}
+
 export async function getNowPlayingMovies(pageNumber: string) {
   return fetchMovies("/movie/now_playing", pageNumber)
 }

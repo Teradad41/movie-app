@@ -1,8 +1,4 @@
-import {
-  EmptyStarIcon,
-  HalfStarIcon,
-  StarIcon,
-} from "@/components/custom-ui/icons"
+import { ReviewStars } from "@/components/custom-ui/review-stars"
 import type { Movie } from "@/lib/definitions"
 import { calculateRating } from "@/lib/ratings"
 import Image from "next/image"
@@ -30,19 +26,11 @@ export function MovieCard2({ movie }: { movie: Movie }) {
               {movie.title}
             </h2>
             <div className="flex items-center text-yellow-500 mb-2">
-              {Array.from({ length: fullStars }).map((_, index) => (
-                <StarIcon
-                  key={String(index)}
-                  className="w-5 h-5 mr-1 text-yellow-400"
-                />
-              ))}
-              {halfStar && <HalfStarIcon className="w-5 h-5 mr-1" />}
-              {Array.from({ length: emptyStars }).map((_, index) => (
-                <EmptyStarIcon
-                  key={String(index)}
-                  className="w-5 h-5 mr-1 text-gray-400"
-                />
-              ))}
+              <ReviewStars
+                fullStars={fullStars}
+                halfStar={halfStar}
+                emptyStars={emptyStars}
+              />
               <span className="text-yellow-400 ml-2">{rating}</span>
             </div>
             <p className="text-gray-300 line-clamp-2">

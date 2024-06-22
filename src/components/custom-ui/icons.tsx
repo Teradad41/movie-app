@@ -101,7 +101,7 @@ export function HomeIcon(props: any) {
   return (
     <svg
       {...props}
-      className="w-6 h-6 "
+      className="w-5 h-5"
       fill="none"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"

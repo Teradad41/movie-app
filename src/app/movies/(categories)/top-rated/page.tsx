@@ -1,5 +1,5 @@
 import Loading from "@/app/movies/(categories)/loading"
-import { MovieCardsList } from "@/components/custom-ui/movie-cards-list"
+import { MovieCardList } from "@/components/customs/MovieCardList"
 import { getTopRatedMovies } from "@/lib/data"
 import type { Movie } from "@/lib/definitions"
 import type { SearchParams } from "@/lib/definitions"
@@ -18,13 +18,13 @@ export default async function Page({
   return (
     <>
       <div>
-        <h2 className="text-2xl font-bold mb-2">{metadata.title}</h2>
+        <h2 className="text-2xl font-bold mb-2 mt-10">{metadata.title}</h2>
         <p className="text-gray-500">
           Check out the {metadata.title.toLowerCase()} movie releases.
         </p>
       </div>
       <Suspense fallback={<Loading />}>
-        <MovieCardsList movies={fetchedMovies} />
+        <MovieCardList movies={fetchedMovies} />
       </Suspense>
     </>
   )

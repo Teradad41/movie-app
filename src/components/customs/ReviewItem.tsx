@@ -1,5 +1,5 @@
-import { UserIcon } from "@/components/custom-ui/icons"
-import { ReviewStars } from "@/components/custom-ui/review-stars"
+import { UserIcon } from "@/components/utils/Icons"
+import { ReviewStars } from "@/components/utils/ReviewStars"
 import type { Review } from "@/lib/definitions"
 import { calculateRating } from "@/lib/ratings"
 import Image from "next/image"

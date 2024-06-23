@@ -1,4 +1,4 @@
-import { ReviewItem } from "@/components/custom-ui/review-item"
+import { ReviewItem } from "@/components/customs/ReviewItem"
 import { getMovieReviews } from "@/lib/data"
 import type { Review } from "@/lib/definitions"
 

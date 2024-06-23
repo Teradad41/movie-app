@@ -4,7 +4,7 @@ import Link from "next/link"
 export function CustomSkeleton() {
   return (
     <>
-      <div className="py-2">
+      <div className="pb-2 pt-10">
         <Skeleton className="h-7 w-32 bg-gray-200 dark:bg-gray-800 mb-2" />
         <Skeleton className="h-4 w-64 bg-gray-200 dark:bg-gray-800" />
       </div>

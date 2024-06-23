@@ -1,4 +1,4 @@
-import { Home } from "@/components/custom-ui/home"
+import { Home } from "@/components/customs/Home"
 import { createClient } from "@/utils/supabase/server"
 
 export default async function Index() {

@@ -11,7 +11,7 @@ import {
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import type { MouseEvent } from "react"
 
-export function PaginationCustom() {
+export function MyPagination() {
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const { replace } = useRouter()

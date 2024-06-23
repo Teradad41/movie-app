@@ -1,6 +1,6 @@
 import "@/styles/globals.css"
-import { Header } from "@/components/custom-ui/header"
-import { ThemeProvider } from "@/components/theme-provider"
+import { Header } from "@/components/customs/Header"
+import { ThemeProvider } from "@/components/utils/ThemeProvider"
 import { archivo } from "@/lib/fonts"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"

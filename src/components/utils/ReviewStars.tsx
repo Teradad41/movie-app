@@ -1,8 +1,4 @@
-import {
-  EmptyStarIcon,
-  HalfStarIcon,
-  StarIcon,
-} from "@/components/custom-ui/icons"
+import { EmptyStarIcon, HalfStarIcon, StarIcon } from "@/components/utils/Icons"
 
 type ReviewStarsProps = {
   fullStars: number

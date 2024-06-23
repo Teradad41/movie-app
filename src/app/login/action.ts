@@ -24,7 +24,7 @@ export async function login(formData: FormData) {
   redirect("/")
 }
 
-export async function signup(formData: FormData) {
+export async function Signup(formData: FormData) {
   const supabase = createClient()
 
   // type-casting here for convenience

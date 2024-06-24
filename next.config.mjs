@@ -11,10 +11,6 @@ const nextConfig = {
             }
         ]
     },
-    // 一旦これで対応
-    experimental: {
-        missingSuspenseWithCSRBailout: false
-    }
 };
 
 export default nextConfig;

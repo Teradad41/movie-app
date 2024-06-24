@@ -1,16 +1,10 @@
 import { Badge } from "@/components/ui/badge"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
-import { BeforeFavoriteHeartIcon, UserIcon } from "@/components/utils/Icons"
+import { FavoriteButtonWrapper } from "@/components/utils/FavoriteButtonWrapper"
+import { UserIcon } from "@/components/utils/Icons"
 import { ReviewStars } from "@/components/utils/ReviewStars"
 import type { MovieDetail } from "@/lib/definitions"
 import { calculateRating } from "@/lib/ratings"
 import Image from "next/image"
-import type React from "react"
 
 export const MovieDetails = ({ movie }: { movie: MovieDetail }) => {
   const { rating, fullStars, halfStar, emptyStars } = calculateRating(
@@ -34,17 +28,7 @@ export const MovieDetails = ({ movie }: { movie: MovieDetail }) => {
         <div className="space-y-4">
           <div className="flex justify-between">
             <h1 className="text-3xl md:text-4xl font-bold">{movie.title}</h1>
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger>
-                  <BeforeFavoriteHeartIcon />
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Add to Favorite</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-            {/*<AfterFavoriteHearIcon />*/}
+            <FavoriteButtonWrapper movieId={movie.id} />
           </div>
           <p className="text-gray-500 dark:text-gray-400 text-lg">
             {movie.tagline || "No tagline available"}

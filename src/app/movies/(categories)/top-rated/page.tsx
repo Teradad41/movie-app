@@ -18,16 +18,14 @@ export default function Page({ searchParams }: { searchParams: SearchParams }) {
   const currentPage = Number(searchParams?.page) || 1
 
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <div>
         <h2 className="text-2xl font-bold mb-2 mt-10">{metadata.title}</h2>
         <p className="text-gray-500">
           Check out the {metadata.title.toLowerCase()} movie releases.
         </p>
       </div>
-      <Suspense fallback={<Loading />}>
-        <MovieList currentPage={currentPage} />
-      </Suspense>
-    </>
+      <MovieList currentPage={currentPage} />
+    </Suspense>
   )
 }

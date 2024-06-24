@@ -4,11 +4,11 @@ export const metadata = {
 
 export default async function Page() {
   return (
-    <>
+    <div className="min-h-screen">
       <div>
-        <h2 className="text-2xl font-bold mb-2 mt-10">{metadata.title}</h2>
+        <h2 className="text-2xl font-bold mb-2 mt-10">Your {metadata.title}</h2>
         <p className="text-gray-500">Explore your favorite movies.</p>
       </div>
-    </>
+    </div>
   )
 }

@@ -9,11 +9,13 @@ export const metadata = {
   title: "Upcoming",
 }
 
-export default async function Page({
-  searchParams,
-}: { searchParams: SearchParams }) {
-  const currentPage = Number(searchParams?.page) || 1
+async function MovieList({ currentPage }: { currentPage: number }) {
   const fetchedMovies: Movie[] = await getUpcomingMovies(String(currentPage))
+  return <MovieCardList movies={fetchedMovies} />
+}
+
+export default function Page({ searchParams }: { searchParams: SearchParams }) {
+  const currentPage = Number(searchParams?.page) || 1
 
   return (
     <>
@@ -24,7 +26,7 @@ export default async function Page({
         </p>
       </div>
       <Suspense fallback={<Loading />}>
-        <MovieCardList movies={fetchedMovies} />
+        <MovieList currentPage={currentPage} />
       </Suspense>
     </>
   )

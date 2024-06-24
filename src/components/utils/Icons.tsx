@@ -127,7 +127,7 @@ export function HomeIcon(props: any) {
 
 export function BeforeFavoriteHeartIcon() {
   return (
-    <svg className="w-8 h-8 cursor-pointer" viewBox="0 0 24 24" role={"img"}>
+    <svg className="w-7 h-7 cursor-pointer" viewBox="0 0 24 24" role={"img"}>
       <path
         fill="white"
         stroke="black"
@@ -141,7 +141,7 @@ export function BeforeFavoriteHeartIcon() {
 export function AfterFavoriteHearIcon() {
   return (
     <svg
-      className="w-9 h-9 fill-red-500 cursor-pointer mt-1"
+      className="w-8 h-8 fill-red-500 cursor-pointer"
       viewBox="0 0 24 24"
       role={"img"}
     >

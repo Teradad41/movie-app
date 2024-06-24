@@ -1,4 +1,4 @@
-import { isFavorite } from "@/app/protected/favorites/action"
+import { isFavorite } from "@/app/movies/favorites/action"
 import { FavoriteButton } from "@/components/utils/FavoriteButton"
 
 type FavoriteButtonWrapperProps = {

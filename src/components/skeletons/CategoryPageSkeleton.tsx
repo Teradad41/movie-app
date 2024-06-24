@@ -4,10 +4,6 @@ import Link from "next/link"
 export function CustomSkeleton() {
   return (
     <>
-      <div className="pb-2 pt-10">
-        <Skeleton className="h-7 w-32 bg-gray-200 dark:bg-gray-800 mb-2" />
-        <Skeleton className="h-4 w-64 bg-gray-200 dark:bg-gray-800" />
-      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {Array.from({ length: 8 }).map((_, index) => (
           <div

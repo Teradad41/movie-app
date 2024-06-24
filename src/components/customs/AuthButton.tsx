@@ -7,6 +7,7 @@ import type React from "react"
 
 export const AuthButton: React.FC = async () => {
   const supabase = createClient()
+
   const {
     data: { user },
   } = await supabase.auth.getUser()

@@ -1,6 +1,6 @@
 "use client"
 
-import { addFavorite, removeFavorite } from "@/app/protected/favorites/action"
+import { addFavorite, removeFavorite } from "@/app/movies/favorites/action"
 import {
   Tooltip,
   TooltipContent,
@@ -29,12 +29,12 @@ export const FavoriteButton = ({
     setLoading(true)
 
     try {
+      setFavorite(!favorite)
       if (favorite) {
         await removeFavorite(movieId)
       } else {
         await addFavorite(movieId)
       }
-      setFavorite(!favorite)
     } catch (error) {
       console.error("An error occurred while updating the favorite", error)
     } finally {
@@ -45,7 +45,7 @@ export const FavoriteButton = ({
   return (
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger onClick={handleClick} aria-selected={loading}>
+        <TooltipTrigger onClick={handleClick} aria-disabled={loading}>
           {favorite ? <AfterFavoriteHearIcon /> : <BeforeFavoriteHeartIcon />}
         </TooltipTrigger>
         <TooltipContent>

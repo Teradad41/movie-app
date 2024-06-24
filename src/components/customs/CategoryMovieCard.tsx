@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
+import { FavoriteButtonWrapper } from "@/components/utils/FavoriteButtonWrapper"
 import { UserIcon } from "@/components/utils/Icons"
 import { ReviewStars } from "@/components/utils/ReviewStars"
 import type { Movie } from "@/lib/definitions"
@@ -46,6 +47,9 @@ export function CategoryMovieCard({
               <span>|</span>
               <UserIcon className="w-5 h-5 mx-2" />
               <span>{movie.vote_count}</span>
+            </div>
+            <div className="mt-2 mb-0">
+              <FavoriteButtonWrapper movieId={movie.id} />
             </div>
           </div>
         </CardContent>

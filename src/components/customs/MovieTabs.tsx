@@ -81,7 +81,7 @@ export function MovieTabs() {
       <ul className="flex flex-wrap -mb-px text-sm font-medium text-center">
         <li className="me-2" role="presentation">
           <Link
-            href="/protected/favorites"
+            href="/movies/favorites"
             className={tabClasses("favorites")}
             aria-selected={activeTab === "favorites"}
           >
@@ -93,7 +93,7 @@ export function MovieTabs() {
         </li>
         <li role="presentation">
           <Link
-            href="/protected/reviews"
+            href="/movies/reviews"
             className={tabClasses("reviews")}
             aria-selected={activeTab === "reviews"}
           >

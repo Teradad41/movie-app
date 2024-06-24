@@ -1,5 +1,6 @@
 "use client"
 
+import { HeartIconForFavoriteTab, ReviewIcon } from "@/components/utils/Icons"
 import type { Tab } from "@/lib/definitions"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -24,7 +25,7 @@ export function MovieTabs() {
     }`
 
   return (
-    <div className="flex mb-4 border-b-2 border-gray-200 dark:border-gray-700">
+    <div className="flex mb-4 border-b-2 border-gray-200 dark:border-gray-700 justify-between">
       <ul
         className="flex flex-wrap -mb-px text-sm font-medium text-center"
         id="default-tab"
@@ -58,7 +59,7 @@ export function MovieTabs() {
             Top Rated
           </Link>
         </li>
-        <li role="presentation">
+        <li className="me-2" role="presentation">
           <Link
             href="/movies/upcoming"
             className={tabClasses("upcoming")}
@@ -67,13 +68,39 @@ export function MovieTabs() {
             Upcoming
           </Link>
         </li>
-        <li role="presentation">
+        <li className="me-2" role="presentation">
           <Link
             href="/movies/trending"
             className={tabClasses("trending")}
             aria-selected={activeTab === "trending"}
           >
             Trending
+          </Link>
+        </li>
+      </ul>
+      <ul className="flex flex-wrap -mb-px text-sm font-medium text-center">
+        <li className="me-2" role="presentation">
+          <Link
+            href="/protected/favorites"
+            className={tabClasses("favorites")}
+            aria-selected={activeTab === "favorites"}
+          >
+            <div className="flex gap-x-1.5">
+              <HeartIconForFavoriteTab />
+              <p>Favorite</p>
+            </div>
+          </Link>
+        </li>
+        <li role="presentation">
+          <Link
+            href="/protected/reviews"
+            className={tabClasses("reviews")}
+            aria-selected={activeTab === "reviews"}
+          >
+            <div className="flex gap-x-1.5">
+              <ReviewIcon />
+              <p>Review</p>
+            </div>
           </Link>
         </li>
       </ul>

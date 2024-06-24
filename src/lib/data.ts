@@ -37,18 +37,6 @@ const options = {
   },
 }
 
-async function fetchMovies(endpoint: string, pageNumber: string) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}${endpoint}?language=ja-JP&page=${pageNumber}`,
-    options,
-  )
-  if (!res.ok) {
-    throw new Error(`Failed to fetch ${endpoint} movies`)
-  }
-  const data = await res.json()
-  return data.results
-}
-
 export async function getMovieDetail(id: string) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/movie/${id}?language=ja-JP`,
@@ -106,4 +94,18 @@ export async function getUpcomingMovies(pageNumber: string) {
 
 export async function getTrendingMovies(timeWindow: "day" | "week") {
   return fetchMovies(`/trending/movie/${timeWindow}`, "1")
+}
+
+async function fetchMovies(endpoint: string, pageNumber: string) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}${endpoint}?language=ja-JP&page=${pageNumber}`,
+    options,
+  )
+
+  if (!res.ok) {
+    throw new Error(`Failed to fetch ${endpoint} movies`)
+  }
+
+  const data = await res.json()
+  return data.results
 }

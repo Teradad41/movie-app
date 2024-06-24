@@ -59,3 +59,5 @@ export type Tab =
   | "top-rated"
   | "upcoming"
   | "trending"
+  | "favorites"
+  | "reviews"

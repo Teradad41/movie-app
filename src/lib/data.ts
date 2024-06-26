@@ -1,33 +1,3 @@
-import type { Topic } from "@/lib/definitions"
-
-export const topics: Topic[] = [
-  {
-    title: "Now Playing",
-    path: "now-playing",
-    action: () => getNowPlayingMovies("1"),
-  },
-  {
-    title: "Popular",
-    path: "popular",
-    action: () => getPopularMovies("1"),
-  },
-  {
-    title: "Top Rated",
-    path: "top-rated",
-    action: () => getTopRatedMovies("1"),
-  },
-  {
-    title: "Upcoming",
-    path: "upcoming",
-    action: () => getUpcomingMovies("1"),
-  },
-  {
-    title: "Trending",
-    path: "trending",
-    action: () => getTrendingMovies("week"),
-  },
-]
-
 const options = {
   method: "GET",
   next: { revalidate: 1800 },

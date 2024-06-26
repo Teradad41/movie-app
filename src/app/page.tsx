@@ -1,7 +1,7 @@
 import { Home } from "@/components/customs/Home"
 import { createClient } from "@/utils/supabase/server"
 
-export default async function Index() {
+export default function Page() {
   const canInitSupabaseClient = () => {
     try {
       createClient()

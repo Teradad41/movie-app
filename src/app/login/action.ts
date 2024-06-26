@@ -4,7 +4,7 @@ import { createClient } from "@/utils/supabase/server"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
-export async function login(formData: FormData) {
+export const login = async (formData: FormData) => {
   const supabase = createClient()
 
   // type-casting here for convenience
@@ -24,7 +24,7 @@ export async function login(formData: FormData) {
   redirect("/")
 }
 
-export async function Signup(formData: FormData) {
+export const Signup = async (formData: FormData) => {
   const supabase = createClient()
 
   // type-casting here for convenience
@@ -42,4 +42,17 @@ export async function Signup(formData: FormData) {
 
   revalidatePath("/", "layout")
   redirect("/")
+}
+
+export const SignOut = async () => {
+  console.log("signing out")
+
+  const supabase = createClient()
+  const { error } = await supabase.auth.signOut()
+
+  if (error) {
+    console.error("An error occurred while signing out", error)
+  }
+
+  return redirect("/login")
 }

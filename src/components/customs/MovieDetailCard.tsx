@@ -5,11 +5,11 @@ import { ReviewList } from "@/components/customs/ReviewList"
 import { BreadcrumbCustom } from "@/components/utils/MyBreadclumb"
 import { ScrollIndicator } from "@/components/utils/ScrollIndicator"
 import { getMovieDetail } from "@/lib/data"
-import type { MovieDetail } from "@/lib/definitions"
+import type { Movie } from "@/lib/definitions"
 import { Suspense } from "react"
 
 export async function MovieDetailPage({ movieId }: { movieId: string }) {
-  const movie: MovieDetail = await getMovieDetail(movieId)
+  const movie: Movie = await getMovieDetail(movieId)
 
   return (
     <div>

@@ -1,6 +1,9 @@
 "use client"
 
-import { addFavorite, removeFavorite } from "@/app/movies/favorites/action"
+import {
+  addFavorite,
+  removeFavorite,
+} from "@/app/movies/(categories)/favorites/action"
 import {
   Tooltip,
   TooltipContent,
@@ -11,15 +14,16 @@ import {
   AfterFavoriteHearIcon,
   BeforeFavoriteHeartIcon,
 } from "@/components/utils/Icons"
+import type { Movie } from "@/lib/definitions"
 import React, { useState } from "react"
 
 type FavoriteButtonProps = {
-  movieId: number
+  movie: Movie
   initialFavorite: boolean
 }
 
 export const FavoriteButton = ({
-  movieId,
+  movie,
   initialFavorite,
 }: FavoriteButtonProps) => {
   const [favorite, setFavorite] = useState<boolean>(initialFavorite)
@@ -31,9 +35,9 @@ export const FavoriteButton = ({
     try {
       setFavorite(!favorite)
       if (favorite) {
-        await removeFavorite(movieId)
+        await removeFavorite(movie.id)
       } else {
-        await addFavorite(movieId)
+        await addFavorite(movie)
       }
     } catch (error) {
       console.error("An error occurred while updating the favorite", error)

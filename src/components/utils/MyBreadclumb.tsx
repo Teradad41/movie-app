@@ -27,9 +27,7 @@ export const BreadcrumbCustom = ({
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href={`/movies/${tabName}`}>
-              {tabName}
-            </BreadcrumbLink>
+            <BreadcrumbLink href="#">...</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>{movieTitle}</BreadcrumbItem>

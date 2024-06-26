@@ -2,17 +2,49 @@ import { Footer } from "@/components/customs/Footer"
 import { HomeMovieCard } from "@/components/customs/HomeMovieCard"
 import { Button } from "@/components/ui/button"
 import Search from "@/components/utils/Search"
-import { topics } from "@/lib/data"
-import type { Movie, Topic } from "@/lib/definitions"
+import {
+  getNowPlayingMovies,
+  getPopularMovies,
+  getTopRatedMovies,
+  getTrendingMovies,
+  getUpcomingMovies,
+} from "@/lib/data"
+import type { Movie } from "@/lib/definitions"
 import Link from "next/link"
 import { Suspense } from "react"
 
+type Topic = {
+  title: string
+  path: string
+  movies: Movie[]
+}
+
+async function fetchMovies(): Promise<Topic[]> {
+  const [
+    nowPlayingMovies,
+    popularMovies,
+    topRatedMovies,
+    upcomingMovies,
+    trendingMovies,
+  ] = await Promise.all([
+    getNowPlayingMovies("1"),
+    getPopularMovies("1"),
+    getTopRatedMovies("1"),
+    getUpcomingMovies("1"),
+    getTrendingMovies("week"),
+  ])
+
+  return [
+    { title: "Now Playing", path: "now-playing", movies: nowPlayingMovies },
+    { title: "Popular", path: "popular", movies: popularMovies },
+    { title: "Top Rated", path: "top-rated", movies: topRatedMovies },
+    { title: "Upcoming", path: "upcoming", movies: upcomingMovies },
+    { title: "Trending", path: "trending", movies: trendingMovies },
+  ]
+}
+
 export async function Home() {
-  const shuffledTopics = topics.sort(() => Math.random() - 0.5)
-  const randomTopics = shuffledTopics.slice(0, 3)
-  const fetchedMovies: Movie[][] = await Promise.all(
-    randomTopics.map((topic: Topic) => topic.action()),
-  )
+  const topics: Topic[] = await fetchMovies()
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -36,7 +68,7 @@ export async function Home() {
         </div>
       </section>
 
-      {randomTopics.map((topic: Topic, topicIndex: number) => (
+      {topics.map((topic: Topic) => (
         <section key={topic.title} className="pt-12 md:pt-20">
           <div className="container px-4 md:px-6">
             <div className="flex justify-between border-b-2 border-gray-400 dark:border-white pb-4 mb-4 md:mb-8">
@@ -52,8 +84,8 @@ export async function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {Array.from({ length: 4 }).map((_, movieIndex) => (
                 <HomeMovieCard
-                  key={fetchedMovies[topicIndex][movieIndex].id}
-                  movie={fetchedMovies[topicIndex][movieIndex]}
+                  key={topic.title + String(movieIndex)}
+                  movie={topic.movies[movieIndex]}
                 />
               ))}
             </div>
@@ -69,9 +101,7 @@ export async function Home() {
               Read reviews from other users and share your own thoughts.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/*card here*/}
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" />
           <div className="mt-8 md:mt-12 text-center">
             <Button className="bg-primary font-bold py-3 rounded-md hover:bg-primary/80 focus:ring-2 focus:ring-primary focus:outline-none">
               Write a Review

@@ -1,14 +1,9 @@
-import { isFavorite } from "@/app/movies/favorites/action"
+import { isFavorite } from "@/app/movies/(categories)/favorites/action"
 import { FavoriteButton } from "@/components/utils/FavoriteButton"
+import type { Movie } from "@/lib/definitions"
 
-type FavoriteButtonWrapperProps = {
-  movieId: number
-}
+export const FavoriteButtonWrapper = async ({ movie }: { movie: Movie }) => {
+  const favorite = await isFavorite(movie.id)
 
-export const FavoriteButtonWrapper = async ({
-  movieId,
-}: FavoriteButtonWrapperProps) => {
-  const favorite: boolean = await isFavorite(movieId)
-
-  return <FavoriteButton movieId={movieId} initialFavorite={favorite} />
+  return <FavoriteButton movie={movie} initialFavorite={favorite} />
 }

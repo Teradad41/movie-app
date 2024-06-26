@@ -5,13 +5,10 @@ export type Movie = {
   poster_path: string
   vote_average: number
   vote_count: number
-}
-
-export type MovieDetail = Movie & {
-  runtime: number
-  tagline: string
-  release_date: string
-  genres: { id: number; name: string }[]
+  runtime?: number
+  tagline?: string
+  release_date?: string
+  genres?: { id: number; name: string }[]
 }
 
 export type Cast = {
@@ -45,12 +42,6 @@ export type Review = {
 export type SearchParams = {
   query?: string
   page?: string
-}
-
-export type Topic = {
-  title: string
-  path: Tab
-  action: () => Promise<Movie[]>
 }
 
 export type Tab =

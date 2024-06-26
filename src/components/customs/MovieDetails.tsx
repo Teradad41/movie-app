@@ -2,11 +2,11 @@ import { Badge } from "@/components/ui/badge"
 import { FavoriteButtonWrapper } from "@/components/utils/FavoriteButtonWrapper"
 import { UserIcon } from "@/components/utils/Icons"
 import { ReviewStars } from "@/components/utils/ReviewStars"
-import type { MovieDetail } from "@/lib/definitions"
+import type { Movie } from "@/lib/definitions"
 import { calculateRating } from "@/lib/ratings"
 import Image from "next/image"
 
-export const MovieDetails = ({ movie }: { movie: MovieDetail }) => {
+export const MovieDetails = ({ movie }: { movie: Movie }) => {
   const { rating, fullStars, halfStar, emptyStars } = calculateRating(
     movie.vote_average,
   )
@@ -28,7 +28,7 @@ export const MovieDetails = ({ movie }: { movie: MovieDetail }) => {
         <div className="space-y-4">
           <div className="flex justify-between">
             <h1 className="text-3xl md:text-4xl font-bold">{movie.title}</h1>
-            <FavoriteButtonWrapper movieId={movie.id} />
+            <FavoriteButtonWrapper movie={movie} />
           </div>
           <p className="text-gray-500 dark:text-gray-400 text-lg">
             {movie.tagline || "No tagline available"}
@@ -64,7 +64,7 @@ export const MovieDetails = ({ movie }: { movie: MovieDetail }) => {
             <div className="flex flex-col gap-2">
               <p className="font-medium">Genre</p>
               <div className="flex flex-wrap gap-2">
-                {movie.genres.map((genre) => (
+                {movie.genres?.map((genre) => (
                   <div key={genre.id}>
                     <Badge>{genre.name}</Badge>
                   </div>

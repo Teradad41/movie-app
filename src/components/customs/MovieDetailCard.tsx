@@ -1,7 +1,9 @@
 import { CastList } from "@/components/customs/CastList"
 import { CrewList } from "@/components/customs/CrewList"
 import { MovieDetails } from "@/components/customs/MovieDetails"
+import { ReviewForm } from "@/components/customs/ReviewForm"
 import { ReviewList } from "@/components/customs/ReviewList"
+import { Button } from "@/components/ui/button"
 import { BreadcrumbCustom } from "@/components/utils/MyBreadclumb"
 import { ScrollIndicator } from "@/components/utils/ScrollIndicator"
 import { getMovieDetail } from "@/lib/data"
@@ -14,7 +16,7 @@ export async function MovieDetailPage({ movieId }: { movieId: string }) {
   return (
     <div>
       <div>
-        <BreadcrumbCustom tabName={"popular"} movieTitle={movie.title} />
+        <BreadcrumbCustom movieTitle={movie.title} />
         <MovieDetails movie={movie} />
         <ScrollIndicator />
       </div>
@@ -29,6 +31,12 @@ export async function MovieDetailPage({ movieId }: { movieId: string }) {
             </Suspense>
             <Suspense>
               <ReviewList movieId={movieId} />
+              <div className="mt-8 md:mt-6 text-center">
+                <Button className="bg-primary font-bold py-3 rounded-md hover:bg-primary/80 focus:ring-2 focus:ring-primary focus:outline-none">
+                  Write a Review
+                </Button>
+                <ReviewForm />
+              </div>
             </Suspense>
           </div>
         </div>

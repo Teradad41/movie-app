@@ -1,6 +1,6 @@
 "use client"
 
-import { SignOut } from "@/app/login/action"
+import { signOut } from "@/app/login/action"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,14 +14,16 @@ import Link from "next/link"
 
 export const UserIconWrapper = () => {
   const handleSignOutClick = async () => {
-    await SignOut()
+    await signOut()
   }
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
-        <UserIcon className="mr-6 w-6 h-6 text-gray-400" />
-      </DropdownMenuTrigger>
+      <div className="mr-6">
+        <DropdownMenuTrigger>
+          <UserIcon className="w-6 h-6 text-gray-400" />
+        </DropdownMenuTrigger>
+      </div>
       <DropdownMenuContent>
         <DropdownMenuLabel className="font-bold text-center">
           My Account
@@ -36,7 +38,7 @@ export const UserIconWrapper = () => {
           className="cursor-pointer"
           onClick={handleSignOutClick}
         >
-          <span className="text-gray-500">Logout</span>
+          <span className="text-red-500">Logout</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

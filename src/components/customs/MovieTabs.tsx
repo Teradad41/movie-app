@@ -1,6 +1,9 @@
 "use client"
 
-import { HeartIconForFavoriteTab, ReviewIcon } from "@/components/utils/Icons"
+import {
+  FavoriteIconCategoryTab,
+  ReviewIconCategoryTab,
+} from "@/components/utils/Icons"
 import type { Tab } from "@/lib/definitions"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -86,7 +89,7 @@ export function MovieTabs() {
             aria-selected={activeTab === "favorites"}
           >
             <div className="flex gap-x-1.5">
-              <HeartIconForFavoriteTab />
+              <FavoriteIconCategoryTab />
               <p>Favorite</p>
             </div>
           </Link>
@@ -98,7 +101,7 @@ export function MovieTabs() {
             aria-selected={activeTab === "reviews"}
           >
             <div className="flex gap-x-1.5">
-              <ReviewIcon />
+              <ReviewIconCategoryTab className="w-4 h-4 mt-0.5" />
               <p>Review</p>
             </div>
           </Link>

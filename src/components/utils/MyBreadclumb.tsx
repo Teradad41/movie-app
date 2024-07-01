@@ -8,14 +8,10 @@ import {
 import { HomeIcon } from "@/components/utils/Icons"
 
 type BreadclumbCustomProps = {
-  tabName: string
   movieTitle: string
 }
 
-export const BreadcrumbCustom = ({
-  tabName,
-  movieTitle,
-}: BreadclumbCustomProps) => {
+export const BreadcrumbCustom = ({ movieTitle }: BreadclumbCustomProps) => {
   return (
     <div className="ml-4">
       <Breadcrumb>

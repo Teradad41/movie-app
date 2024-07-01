@@ -10,6 +10,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { useToast } from "@/components/ui/use-toast"
 import {
   AfterFavoriteHearIcon,
   BeforeFavoriteHeartIcon,
@@ -28,12 +29,18 @@ export const FavoriteButton = ({
 }: FavoriteButtonProps) => {
   const [favorite, setFavorite] = useState<boolean>(initialFavorite)
   const [loading, setLoading] = useState<boolean>(false)
+  const { toast } = useToast()
 
   const handleClick = async () => {
     setLoading(true)
 
     try {
       setFavorite(!favorite)
+      toast({
+        description: favorite ? "Removed from Favorite" : "Added to Favorite",
+        className: "text-white dark:text-black bg-primary",
+      })
+
       if (favorite) {
         await removeFavorite(movie.id)
       } else {

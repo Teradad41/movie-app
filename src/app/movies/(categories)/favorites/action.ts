@@ -2,6 +2,7 @@
 
 import type { Movie } from "@/lib/definitions"
 import { createClient } from "@/utils/supabase/server"
+import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
 export const addFavorite = async (movie: Movie) => {
@@ -29,6 +30,8 @@ export const addFavorite = async (movie: Movie) => {
   } else {
     redirect("/login")
   }
+
+  revalidatePath("/movies/favorites")
 }
 
 export const removeFavorite = async (id: number) => {
@@ -50,6 +53,7 @@ export const removeFavorite = async (id: number) => {
   } else {
     redirect("/login")
   }
+  revalidatePath("/movies/favorites")
 }
 
 export const isFavorite = async (id: number) => {

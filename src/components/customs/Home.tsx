@@ -1,6 +1,5 @@
 import { Footer } from "@/components/customs/Footer"
 import { HomeMovieCard } from "@/components/customs/HomeMovieCard"
-import { Button } from "@/components/ui/button"
 import Search from "@/components/utils/Search"
 import {
   getNowPlayingMovies,
@@ -92,24 +91,9 @@ export async function Home() {
           </div>
         </section>
       ))}
-
-      <section className="py-12 md:py-20">
-        <div className="container px-4 md:px-6">
-          <div className="mb-8 md:mb-12">
-            <h2 className="text-2xl font-bold mb-2">Movie Reviews</h2>
-            <p className="text-gray-500">
-              Read reviews from other users and share your own thoughts.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" />
-          <div className="mt-8 md:mt-12 text-center">
-            <Button className="bg-primary font-bold py-3 rounded-md hover:bg-primary/80 focus:ring-2 focus:ring-primary focus:outline-none">
-              Write a Review
-            </Button>
-          </div>
-        </div>
-      </section>
-      <Footer />
+      <div className="pt-32">
+        <Footer />
+      </div>
     </div>
   )
 }

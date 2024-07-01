@@ -28,7 +28,9 @@ export const MovieDetails = ({ movie }: { movie: Movie }) => {
         <div className="space-y-4">
           <div className="flex justify-between">
             <h1 className="text-3xl md:text-4xl font-bold">{movie.title}</h1>
-            <FavoriteButtonWrapper movie={movie} />
+            <div className="flex gap-6">
+              <FavoriteButtonWrapper movie={movie} />
+            </div>
           </div>
           <p className="text-gray-500 dark:text-gray-400 text-lg">
             {movie.tagline || "No tagline available"}

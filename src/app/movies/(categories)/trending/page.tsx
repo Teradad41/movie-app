@@ -14,7 +14,8 @@ async function MovieList() {
   return <MovieCardList movies={fetchedMovies} />
 }
 
-export default function Page({ searchParams }: { searchParams: SearchParams }) {
+export default async function Page(props: { searchParams: Promise<SearchParams> }) {
+  const searchParams = await props.searchParams;
   const currentPage = Number(searchParams?.page) || 1
 
   return (

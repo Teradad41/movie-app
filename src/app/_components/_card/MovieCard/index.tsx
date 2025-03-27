@@ -5,7 +5,7 @@ import { calculateRating } from "@/lib/ratings"
 import Image from "next/image"
 import Link from "next/link"
 
-export function HomeMovieCard({ movie }: { movie: Movie }) {
+export function MovieCard({ movie }: { movie: Movie }) {
   const { rating, fullStars, halfStar, emptyStars } = calculateRating(
     movie.vote_average,
   )
